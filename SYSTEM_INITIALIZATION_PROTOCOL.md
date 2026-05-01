@@ -23,7 +23,7 @@ Create the following folder structure in the root of the workspace:
     │   └── AGENTS.md
     ├── 30_Procedural/
     │   ├── AGENTS.md
-    │   └── Ingesting Research.md
+    │   └── Ingesting_Research.md
     ├── 40_Research/
     │   ├── AGENTS.md
     │   ├── Raw/
@@ -92,9 +92,10 @@ tags: # [at least 3 relevant tags, no more than 20]
 confidence: # 1-5 (1 = hypothesis, 5 = verified fact)
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
-related01: [[Note 1]]
-related02: [[Note 2]]
-related03: [[Note 3]]
+related:
+  - "[[Note 1]]"
+  - "[[Note 2]]"
+  - "[[Note 3]]"
 ---
 ```
 
@@ -148,11 +149,11 @@ This directory stores executable "Action Documents" or Skills.
 ## Rules of Operation
 1. **Trigger Phrase Execution:** The user will invoke these files via natural language (e.g., "Ingest new research please"). When recognized, you must load the corresponding procedural markdown file and follow its instructions to the letter.
 2. **Current Skills Index:**
-   - `[[Ingesting Research]]`: Triggered when asked to process files in the `40_Research/Raw/` folder.
-3. **Skill Creation:** When the user establishes a repeated workflow, document it here using the `type: skill` schema.
+   - `[[Ingesting_Research]]`: Triggered when asked to process files in the `40_Research/Raw/` folder.
+1. **Skill Creation:** When the user establishes a repeated workflow, document it here using the `type: skill` schema.
 ```
 
-## STEP 8: Create the Research Ingestion Skill (`./Memory/30_Procedural/Ingesting Research.md`)
+## STEP 8: Create the Research Ingestion Skill (`./Memory/30_Procedural/Ingesting_Research.md`)
 
 ```
 ---
@@ -166,8 +167,9 @@ tags:
 created: 2026-04-30
 updated: 2026-04-30
 confidence: 5
-related01: [[40_Research/AGENTS]]
-related02: [[20_Semantic/AGENTS]]
+related: 
+  - "[[Memory/40_Research/AGENTS|AGENTS]]"
+  - "[[Memory/20_Semantic/AGENTS|AGENTS]]"
 ---
 
 # Procedural Workflow: Research Ingestion
@@ -232,7 +234,7 @@ tags: [context, tasks, bootstrapping]
 confidence: 5
 created: 2026-04-30
 updated: 2026-04-30
-related01: [[50_Context/AGENTS]]
+related: "[[Memory/50_Context/AGENTS|AGENTS]]"
 ---
 
 # 🎯 Active Context & Tasks
