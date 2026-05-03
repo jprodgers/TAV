@@ -2,13 +2,15 @@
 
 **Target:** You (The AI Agent).
 
-**Task:** Bootstrap the "Tiered Agent Vault" (TAV) in the current workspace.
+**Task:** Bootstrap the "Tiered Agent Vault" (TAV) in the current workspace using deterministic telemetry and high-density knowledge graph protocols.
 
-**Instructions:** Create the exact directory structure below, then generate the 13 specified files with the precise content provided. Do not alter the content.
+**Instructions:** Create the exact directory structure below, then generate the 13 specified files with the precise content provided. You MUST NOT alter the content of these files during generation.
 
 ## STEP 1: Create the Directory Architecture
 
-Create the following folder structure in the root of the workspace:
+Create the following folder structure in the root of the workspace.
+
+_Directive: You MUST ensure an `AGENTS.md` file is placed in every single directory to enforce localized semantic boundaries._
 
 ```
 /
@@ -27,7 +29,9 @@ Create the following folder structure in the root of the workspace:
     ├── 40_Research/
     │   ├── AGENTS.md
     │   ├── Raw/
+    │   │   └── AGENTS.md
     │   └── Processed/
+    │       └── AGENTS.md
     ├── 50_Context/
     │   ├── AGENTS.md
     │   └── active-tasks.md
@@ -40,40 +44,47 @@ Create the following folder structure in the root of the workspace:
 ```
 # 🧠 AGENT BOOTLOADER: READ IMMEDIATELY
 
-You are operating within a Tiered Agent Vault (TAV) designed to prevent context rot. 
-Do **NOT** scan or load the entire vault into your context window.
+You are operating within a Tiered Agent Vault (TAV) governed by a Distributed Semantic Control Plane.
 
 **CRITICAL BOOT SEQUENCE:**
-To understand your identity, operational parameters, and how to read/write to this vault, you must immediately read the following two files:
+To understand your identity, operational parameters, and structural constraints, you MUST immediately read the following two files before taking any further action:
 
-1. `./Memory/00_System/AGENTS.md` (Core Directives & Boot Sequence)
-2. `./Memory/00_System/MEMORY.md` (Formatting, Schema, & Obsidian Syntax)
+1. `./Memory/00_System/AGENTS.md` (Core Directives)
+2. `./Memory/00_System/MEMORY.md` (Formatting & Schema)
 
-Read those files now before taking any further action.
+**ABSOLUTE SYSTEM IMPERATIVES:**
+- **No silent failures:** You MUST NOT early-return on invalid input or conclude your turn without logging the exact error or missing data state.
+- **Eradication of Silent Actions:** You MUST NOT execute any operational tool or modify any file without first synchronously documenting your intent in the central log (`./Memory/10_Episodic/`).
+- **Trajectory Immutability:** Before executing any action, you MUST: 
+  1. Identify the action you intend to take. 
+  2. Retrieve and review all local `AGENTS.md` rules. 
+  3. Reason explicitly about your compliance. 
+  4. Output your reasoning trace directly to the logging ledger.
 ```
 
 ## STEP 3: Create the Core Directives (`./Memory/00_System/AGENTS.md`)
 
 ```
-# CORE OPERATIONAL DIRECTIVES
+# CORE OPERATIONAL DIRECTIVES & CONTROL PLANE
 
-## Identity and Intent
-You are the primary cognitive agent for this Obsidian-based vault. Your goal is to assist the user by maintaining a persistent, high-accuracy memory system. You act as a Senior Knowledge Engineer.
+## 1. Directory Purpose
+This directory (`/00_System/`) serves as the immutable pre-frontal cortex of the TAV framework. It houses the global structural definitions and baseline schemas. You MUST NOT modify files in this directory without explicit, overriding human authorization.
 
-## Distributed Governance
-Each primary directory in this vault contains its own `AGENTS.md` file. When operating within a specific directory (e.g., writing an episodic log or executing a skill), you must consult that folder's localized `AGENTS.md` for specific instructions.
+## 2. Structural Invariants
+You are the primary cognitive agent for this vault. Your goal is to function as a deterministic, self-maintaining cognitive engine. All files globally MUST conform to the YAML requirements specified in `MEMORY.md`. 
 
-## The Selective Loading Protocol (STRICT)
-To prevent context rot, do NOT load the entire vault. Follow this sequence at the start of every session:
+## 3. Ingestion Routing
+This folder strictly forbids raw extraction or multi-source synthesis. It is a read-only configuration zone. Route all general knowledge to `/20_Semantic/` and all raw data to `/40_Research/Raw/`.
+
+## 4. Telemetry Triggers
+Any read-access to this folder during a session MUST be logged. Any attempt by a user to alter these files MUST trigger a high-priority warning in the active task log and an explicit confirmation prompt.
+
+## 5. The Selective Loading Protocol (STRICT)
+To prevent context boundary failures, you MUST NOT load the entire vault into memory. Follow this sequence at the start of every session:
 1. READ this file and `MEMORY.md`.
 2. READ `../50_Context/active-tasks.md` to orient yourself.
-3. READ the current day's log in `../10_Episodic/` (if it exists).
-4. SCAN the relevant index/manifest to find file paths if the user mentions a specific topic.
-5. Only read full content files once relevance is confirmed via YAML metadata.
-
-## Safety and Permissions
-- **Always:** Use Wikilinks `[[Note]]` and YAML metadata.
-- **Ask First:** Before deleting files or majorly reorganizing `/20_Semantic/`.
+3. READ the current day's log in `../10_Episodic/`.
+4. Only read full content files once relevance is confirmed via YAML metadata or existing links.
 ```
 
 ## STEP 4: Create the Memory Schema (`./Memory/00_System/MEMORY.md`)
@@ -82,7 +93,7 @@ To prevent context rot, do NOT load the entire vault. Follow this sequence at th
 # MEMORY SCHEMA & FORMATTING RULES
 
 ## 1. Metadata Standard (Frontmatter)
-Every markdown file MUST include this exact YAML block at the top. Note the structure for related documents, expand or contract as needed:
+Every markdown file MUST include this exact YAML block. 
 
 ```yaml
 ---
@@ -99,8 +110,8 @@ related:
 ---
 ```
 
-## 2. Linking Protocol
-Always use Obsidian Wikilinks formatting: `[[Exact File Name]]`. Utilize multiple `relatedXX` fields in the YAML block to build a traversable graph.
+## 2. Bidirectional Linking Protocol (STRICT)
+You MUST NEVER generate unidirectional links. Every connection established in the file system must be explicitly bidirectional. If Note A links to Note B, Note B must be updated to link back to Note A. Use standard Obsidian Wikilinks formatting: `[[Exact File Name]]`.
 
 ## 3. Obsidian Callouts
 Use callouts to create semantic containers:
@@ -115,12 +126,21 @@ Use callouts to create semantic containers:
 ```
 # EPISODIC MEMORY PROTOCOL
 
-This directory acts as the system's hippocampus, capturing the raw flow of experience.
+## 1. Directory Purpose
+This directory acts as the immutable episodic memory ledger. It captures the raw flow of experience and enforces deterministic interaction records. 
 
-## Rules of Operation
-1. **Per Prompt:** Record a brief, timestamped bullet point in the current day's note detailing the action taken or information requested.
-2. **Per Session:** At the end of a cohesive working block, generate a session summary using a `> [!summary]` callout. Identify if any facts should be promoted to the `/20_Semantic/` folder.
-3. **Per Day:** All logs are compiled into a single file named `YYYY-MM-DD.md`. Create this file if it does not exist for the current date. Do not modify past daily notes unless specifically fixing a broken link.
+## 2. Structural Invariants (The Immutable Ledger)
+All logs are compiled into a single file named `YYYY-MM-DD.md`. You MUST create this file if it does not exist for the current date. Every entry generated by you MUST conform to this exact schema:
+- **Absolute Temporal Markers:** A precise timestamp and session identifier.
+- **User Intent Capture:** A raw, unaltered transcription of the exact prompt or query provided by the human operator. You MUST log literally every prompt provided verbatim.
+- **Agent Reasoning Trajectory:** A deterministic summary of your internal planning process executed prior to manipulating any files.
+- **Resolution State & Graph Delta:** The final outcome of the sequence, explicitly noting any new semantic relationships created within the knowledge graph.
+
+## 3. Ingestion Routing
+This folder is strictly for append-only logging. Do not synthesize external knowledge here. 
+
+## 4. Telemetry Triggers
+You MUST NOT execute any operational tool, read any raw file, or modify any semantic file without FIRST synchronously documenting your intent in today's ledger according to the Structural Invariants.
 ```
 
 ## STEP 6: Create the Semantic Guidelines (`./Memory/20_Semantic/AGENTS.md`)
@@ -128,15 +148,22 @@ This directory acts as the system's hippocampus, capturing the raw flow of exper
 ```
 # SEMANTIC MEMORY PROTOCOL
 
-This is the core "Second Brain" of the system, storing durable, long-term knowledge.
+## 1. Directory Purpose
+This is the core synthesized knowledge graph. You act as an autonomous, persistent maintainer of a heavily structured, interlinked collection of markdown files.
 
-## Organization & Sub-Folders
-When research is ingested or facts are promoted, organize them into logical sub-folders (e.g., `/concepts`, `/people`, `/technologies`, `/frameworks`). Create these sub-folders dynamically as needed.
+## 2. Structural Invariants & The Pointy Graph Dilemma
+You MUST artificially enforce high graph density. You are forbidden from creating "pointy" graphs (isolated nodes linking only to a central index). 
+- **Island Prevention:** No note can exist without at least two `related` links in its YAML pointing laterally to other concept nodes.
+- **Nested MOCs:** Do not use a monolithic central index. Use localized Maps of Content (MOCs) inside subfolders (e.g., `/20_Semantic/people/index.md`).
 
-## Structural Requirements
-1. **Island Prevention:** No note can exist without at least two `relatedXX` tags in its YAML pointing to other nodes. 
-2. **Visual Hierarchy:** Every semantic note must begin with a `> [!summary]` callout, followed by logically grouped headings.
-3. **Index Maintenance:** Whenever a new note is added, you must update the `index.md` (or equivalent manifest) in this directory with a link and a 1-sentence description.
+## 3. Ingestion Routing
+This folder is strictly for high-fidelity synthesis. When routing data here, you must force analytical depth, extracting conceptual frameworks and explicitly writing synthesized insights into the evolving repository.
+
+## 4. Telemetry Triggers & Autonomous Structural Linting
+Every time you enter this folder to write a new note, you MUST execute a structural linting workflow:
+1. Algorithmically evaluate the link density of surrounding pages.
+2. Flag missing cross-references (topics sharing underlying sources but lacking direct markdown links to each other).
+3. If structural voids are detected, you MUST autonomously synthesize missing bridging connections before concluding your turn.
 ```
 
 ## STEP 7: Create the Procedural Guidelines (`./Memory/30_Procedural/AGENTS.md`)
@@ -144,13 +171,17 @@ When research is ingested or facts are promoted, organize them into logical sub-
 ```
 # PROCEDURAL MEMORY PROTOCOL
 
-This directory stores executable "Action Documents" or Skills.
+## 1. Directory Purpose
+This directory stores executable "Action Documents" or Skills. It defines the rigid operational pipelines you must follow for complex, multi-step tasks.
 
-## Rules of Operation
-1. **Trigger Phrase Execution:** The user will invoke these files via natural language (e.g., "Ingest new research please"). When recognized, you must load the corresponding procedural markdown file and follow its instructions to the letter.
-2. **Current Skills Index:**
-   - `[[Ingesting_Research]]`: Triggered when asked to process files in the `40_Research/Raw/` folder.
-1. **Skill Creation:** When the user establishes a repeated workflow, document it here using the `type: skill` schema.
+## 2. Structural Invariants
+All files here MUST use the `type: skill` schema. They must be formatted as highly deterministic algorithms with numbered, imperative steps.
+
+## 3. Ingestion Routing
+When the user establishes a repeated workflow, document it here. Do not store general knowledge or episodic logs in this directory.
+
+## 4. Telemetry Triggers
+Trigger Phrase Execution: The user will invoke these files via natural language. When recognized, you MUST load the corresponding procedural markdown file, log the initiation of the skill in `/10_Episodic/`, and follow its instructions to the letter without skipping steps.
 ```
 
 ## STEP 8: Create the Research Ingestion Skill (`./Memory/30_Procedural/Ingesting_Research.md`)
@@ -164,6 +195,7 @@ tags:
   - procedural
   - research
   - ingestion
+  - high-density-graph
 created: 2026-04-30
 updated: 2026-04-30
 confidence: 5
@@ -172,27 +204,27 @@ related:
   - "[[Memory/20_Semantic/AGENTS|AGENTS]]"
 ---
 
-# Procedural Workflow: Research Ingestion
+# Procedural Workflow: The High-Density Ingestion Engine
 
 > [!summary] TL;DR
-> Execute this workflow **only** when explicitly prompted by the user to ingest new research dropped into `./Memory/40_Research/Raw/`. Do not auto-ingest.
+> Execute this workflow to deterministically transform raw data into a highly refined, finalized state of structured knowledge. You MUST execute all 3 phases sequentially.
 
-## 1. Ingestion & Analysis
+## Phase 1: Interactive Ingestion and Cross-Referencing
 1. Read the specified raw file(s) located in `./Memory/40_Research/Raw/`.
-2. Parse the document completely, extracting unique architectural decisions, idiosyncratic nomenclature, subtle edge cases, and definitive empirical data points.
+2. Parse the document completely, extracting unique architectural decisions, idiosyncratic nomenclature, and subtle edge cases.
+3. Identify if the source touches upon multiple existing topics within the vault.
+4. You MUST update *all* relevant existing topic articles in `/20_Semantic/` with the new information. Do NOT just create a single new siloed page.
 
-## 2. Synthesis & Creation
-Create a new Markdown file in the appropriate sub-directory of `./Memory/20_Semantic/`. Include mandatory YAML and Obsidian callouts (`> [!summary]`, `> [!warning]`, etc.).
+## Phase 2: Topological Gap Analysis and Conflict Detection
+1. Prior to committing new root pages, compare the newly extracted semantic triples against the historical baseline of the wiki graph.
+2. Search for Structural Voids: instances where two highly related concepts have been ingested but lack a bridging narrative document.
+3. If a void is detected, autonomously generate a synthesis page to physically bridge the topological distance between the concepts.
 
-## 3. Graph Integration
-1. Heavily cross-link the new document to existing notes using `relatedXX` YAML fields and inline `[[Wikilinks]]`.
-2. Add a brief entry to today's log in `./Memory/10_Episodic/` stating what research was ingested.
-
-## 4. File Management (CRITICAL)
-Once ingestion is complete and the semantic note is saved, you **MUST** move the original raw file from `./Memory/40_Research/Raw/` into `./Memory/40_Research/Processed/`.
-
-## 5. Completion State
-Respond to the user confirming the ingestion is complete, summarizing extracted insights, listing the new `[[Wikilinks]]` generated, and confirming the raw file was moved to `/Processed/`.
+## Phase 3: Bidirectional Compilation and File Mutation
+1. Create the primary reference nodes in `/20_Semantic/` (full text, executive summary, atomic concepts).
+2. You are restricted from generating unidirectional links. Inject backlinks pointing directly to the original raw file.
+3. Push newly extracted insights outward, modifying overarching conceptual pages to reflect the new data.
+4. File Management: Once the graph is updated, you MUST move the original raw file from `/40_Research/Raw/` to `/40_Research/Processed/`. Log the Graph Delta in `/10_Episodic/`.
 ```
 
 ## STEP 9: Create the Research Guidelines (`./Memory/40_Research/AGENTS.md`)
@@ -200,67 +232,119 @@ Respond to the user confirming the ingestion is complete, summarizing extracted 
 ```
 # RESEARCH PROTOCOL
 
-This directory manages external documents and raw ingestion pipelines.
+## 1. Directory Purpose
+This directory manages external documents and acts as the parent routing layer for the raw ingestion pipelines. 
 
-## Directory Structure
-- `/Raw/`: Unprocessed files dropped by the user.
-- `/Processed/`: Files that have successfully gone through the `Ingesting Research` procedural workflow.
+## 2. Structural Invariants
+You MUST NOT place data files directly into this parent folder. All files MUST be strictly routed into either the `/Raw/` or `/Processed/` subdirectories.
 
-## Rules of Operation
-1. **Ignore Processed:** Do not scan, read, or summarize files located in the `/Processed/` directory unless explicitly commanded by the user. They are considered "read-only" archives of source material.
-2. **Trigger Only:** Wait for the user to prompt you before reading anything in the `/Raw/` folder.
+## 3. Ingestion Routing
+This is a raw extraction zone. You MUST demand strict fidelity to the source text when reading from its subdirectories. Do not hallucinate or synthesize prior to moving the data into `/20_Semantic/`.
+
+## 4. Telemetry Triggers
+Reading this parent folder requires no immediate logging, but any file movement between its subdirectories MUST be logged as a Graph Delta in `/10_Episodic/`.
 ```
 
-## STEP 10: Create the Context Guidelines (`./Memory/50_Context/AGENTS.md`)
+## STEP 10: Create the Raw Drop-Zone Guidelines (`./Memory/40_Research/Raw/AGENTS.md`)
+
+```
+# RAW DATA PROTOCOL
+
+## 1. Directory Purpose
+This directory acts strictly as the drop-zone for completely unstructured, unverified, and raw source materials provided by the human operator.
+
+## 2. Structural Invariants
+Files residing here are considered completely immutable pending ingestion. You MUST NOT modify the contents of any raw file placed in this directory under any circumstances.
+
+## 3. Ingestion Routing
+You MUST ONLY read from this directory when explicitly executing Phase 1 of the `Ingesting_Research.md` procedural skill. 
+
+## 4. Telemetry Triggers
+You MUST wait for the user to prompt you before reading anything in this folder. Once triggered, you MUST log the read event and source file target in the daily episodic ledger before beginning analysis.
+```
+
+## STEP 11: Create the Processed Archive Guidelines (`./Memory/40_Research/Processed/AGENTS.md`)
+
+```
+# PROCESSED DATA PROTOCOL
+
+## 1. Directory Purpose
+This directory serves as the read-only, cold-storage archive for source materials that have successfully completed the 3-Phase ingestion pipeline and have been integrated into the semantic graph.
+
+## 2. Structural Invariants
+Every file residing here MUST have a corresponding set of interlinked concept nodes mapped into `/20_Semantic/`. Files MUST NOT be modified or appended to once moved here.
+
+## 3. Ingestion Routing
+You are explicitly forbidden from running ingestion, extraction, or synthesis pipelines on files located in this folder. They are considered complete.
+
+## 4. Telemetry Triggers
+You MUST ignore this folder entirely unless explicitly commanded by the user to retrieve an archived source. Any access MUST be logged in `/10_Episodic/`.
+```
+
+## STEP 12: Create the Context Guidelines (`./Memory/50_Context/AGENTS.md`)
 
 ```
 # CONTEXT PROTOCOL
 
-This directory acts as the active "blackboard" for current sessions and open tasks.
+## 1. Directory Purpose
+This directory acts as the active "blackboard" for current sessions and open tasks. It scopes your immediate attention budget.
 
-## Rules of Operation
-1. **Self-Explanation:** This folder provides the immediate state of the workspace. It is always read during the boot sequence.
-2. **Prompt Storage:** User prompts dictating major tasks, pivots, or complex instructions must be stored verbatim as linked nodes within this directory.
-3. **Index Maintenance:** The `active-tasks.md` file serves as the index of ongoing work. Cross off completed items and append new priorities here.
+## 2. Structural Invariants
+The `active-tasks.md` file serves as the index of ongoing work. Cross off completed items and append new priorities here using standard markdown checklists.
+
+## 3. Ingestion Routing
+User prompts dictating major tasks, pivots, or complex instructions MUST be stored verbatim as linked nodes within this directory.
+
+## 4. Telemetry Triggers
+This folder provides the immediate state of the workspace. You MUST read `active-tasks.md` during the boot sequence of every single session.
 ```
 
-## STEP 11: Create the Initial Context File (`./Memory/50_Context/active-tasks.md`)
+## STEP 13: Create the Initial Context File (`./Memory/50_Context/active-tasks.md`)
 
 ```
 ---
 type: project
 status: active
-tags: [context, tasks, bootstrapping]
+tags: 
+  - context
+  - tasks
+  - bootstrapping
 confidence: 5
 created: 2026-04-30
 updated: 2026-04-30
-related: "[[Memory/50_Context/AGENTS|AGENTS]]"
+related: 
+  - "[[Memory/50_Context/AGENTS|AGENTS]]"
 ---
 
 # 🎯 Active Context & Tasks
 
 > [!summary] Current State
-> The Tiered Agent Vault (TAV) has just been bootstrapped.
+> The Tiered Agent Vault (TAV) has just been bootstrapped and the distributed control plane is online.
 
 ## Immediate Priorities
 - [ ] Ask the user for the primary domain and overall goals of this workspace.
-- [ ] Create the first daily log entry in `/10_Episodic/` to record this initialization.
+- [ ] Execute the first Immutable Episodic Ledger entry in `/10_Episodic/` to record this initialization, explicitly logging the reasoning trajectory.
 
 ## Historical Prompts
 *(Agent: Link verbatim complex prompts here as `[[Prompt - Date - Topic]]`)*
 ```
 
-## STEP 12: Create the Archive Guidelines (`./Memory/60_Archive/AGENTS.md`)
+## STEP 14: Create the Archive Guidelines (`./Memory/60_Archive/AGENTS.md`)
 
 ```
 # ARCHIVE PROTOCOL
 
-This directory is the "Cold Storage" of the TAV framework.
+## 1. Directory Purpose
+This directory is the "Cold Storage" of the TAV framework. It exists to reduce the active token footprint and prevent context dilution.
 
-## Rules of Operation
-1. **Manual Trigger:** Do NOT archive any file proactively. Items are only moved here when the user explicitly issues an archive order (e.g., "Archive project X" or "Archive stale semantic notes").
-2. **Directory Mirroring:** When archiving, you must replicate the original directory path structure. (e.g., A file moving from `/20_Semantic/concepts/AI.md` should be moved to `/60_Archive/20_Semantic/concepts/AI.md`).
-3. **Exemptions:** System files (anything in `/00_System/` or `AGENTS.md` files) are permanently exempt from archival. The `/10_Episodic/` and `/20_Semantic/` folders will be the most frequent targets for archival sweeps.
+## 2. Structural Invariants
+Directory Mirroring: When archiving, you MUST replicate the original directory path structure. (e.g., A file moving from `/20_Semantic/concepts/AI.md` MUST be moved to `/60_Archive/20_Semantic/concepts/AI.md`).
+
+## 3. Ingestion Routing
+Manual Trigger Only: You MUST NOT archive any file proactively. Items are only moved here when the user explicitly issues an archive order.
+
+## 4. Telemetry Triggers
+Exemptions: System files (anything in `/00_System/` or `AGENTS.md` files) are permanently exempt from archival. You MUST refuse any prompt instructing you to archive a core `AGENTS.md` interface.
 ```
 
-**Completion Check:** Once you have created all the directories in Step 1 and the 12 markdown files in Steps 2-12, reply to the user confirming that the Tiered Agent Vault is online, the distributed governance network is active, and you are ready for the first working session.
+**Completion Check:** Once you have created all the directories in Step 1 and the 13 markdown files in Steps 2-14, reply to the user confirming that the Tiered Agent Vault is online, the distributed governance network is active, and you are ready for the first working session.

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "SYSTEM_INITIALIZATION_PROTOCOL.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "SYSTEM_INITIALIZATION_PROTOCOL"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "SYSTEM_INITIALIZATION_PROTOCOL.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for README"
+              "title": "Backlinks for SYSTEM_INITIALIZATION_PROTOCOL"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "SYSTEM_INITIALIZATION_PROTOCOL.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from README"
+              "title": "Outgoing links from SYSTEM_INITIALIZATION_PROTOCOL"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md",
+                "file": "SYSTEM_INITIALIZATION_PROTOCOL.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of README"
+              "title": "Outline of SYSTEM_INITIALIZATION_PROTOCOL"
             }
           }
         ]
@@ -185,8 +185,8 @@
   },
   "active": "79cf79c762bf5d2c",
   "lastOpenFiles": [
-    "SYSTEM_INITIALIZATION_PROTOCOL.md",
     "README.md",
+    "SYSTEM_INITIALIZATION_PROTOCOL.md",
     "SYSTEM INITIALIZATION PROTOCOL.md"
   ]
 }
